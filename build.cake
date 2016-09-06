@@ -72,11 +72,10 @@ Task("Create-Release-Notes")
     .IsDependentOn("Check-Build-Folder-Exists")
     .Does(() =>
 {
-	var githubToken = Argument<string>("githubToken");
     var releaseNotesExitCode = StartProcess(@"tools\GitReleaseNotes\tools\gitreleasenotes.exe",
      new ProcessSettings
       {
-        Arguments = ". /o ./build/releasenotes.md /repoToken " + githubToken
+        Arguments = ". /o ./build/releasenotes.md"
       });
 
       if (string.IsNullOrEmpty(System.IO.File.ReadAllText("./build/releasenotes.md")))
