@@ -10,11 +10,9 @@
     <description>Provides a .NET REST client implementation of GitLab API with no external dependencies. Uses the private token authentication</description>
     <projectUrl>https://github.com/Franklin89/NGitLab</projectUrl>
     <licenseUrl>https://github.com/Franklin89/NGitLab/blob/master/LICENSE</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/Franklin89/NGitLab/master/docs/img/package_icon.png</iconUrl>
+    <releaseNotes>https://github.com/Franklin89/NGitLab/releases</releaseNotes>
     <tags>GitLab API NGitlab</tags>
-    <language>en-US</language>
-    <releaseNotes>
-      * 1.0.0.0 - initial, majority of methods work, tests based on the locally run VM
-    </releaseNotes>
   </metadata>
   <files>
     <file src="NGitLab\NGitlab\bin\Release\NGitLab.dll" target="lib\net45" />

@@ -29,3 +29,8 @@ Where can I get it?
 Get it from NuGet. You can simply install it with the Package Manager console:
 
     PM> Install-Package NGitLab
+
+Maintainer
+=============
+
+Big thanks to @Scooletz to bringing this project to life. I am happy to continue his work.

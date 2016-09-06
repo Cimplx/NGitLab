@@ -4,7 +4,6 @@ using NUnit.Framework;
 
 namespace NGitLab.Tests.MergeRequest
 {
-    // ReSharper disable once InconsistentNaming
     [SetUpFixture]
     public class _MergeRequestClientTests
     {

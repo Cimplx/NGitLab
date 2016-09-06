@@ -1,3 +1,5 @@
 branches:
   master:
     tag: beta
+ignore:
+  sha: []
