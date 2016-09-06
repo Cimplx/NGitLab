@@ -11,7 +11,6 @@
     <projectUrl>https://github.com/Franklin89/NGitLab</projectUrl>
     <licenseUrl>https://github.com/Franklin89/NGitLab/blob/master/LICENSE</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/Franklin89/NGitLab/master/docs/img/package_icon.png</iconUrl>
-    <releaseNotes>https://github.com/Franklin89/NGitLab/releases</releaseNotes>
     <tags>GitLab API NGitlab</tags>
   </metadata>
   <files>

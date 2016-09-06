@@ -77,8 +77,15 @@ Task("Run-NUnit-Tests")
     }
 });
 
+Task("Check-Build-Folder-Exists")
+  .IsDependentOn("Build")
+  .Does(() =>
+  {
+    EnsureDirectoryExists("./build");
+  });
+
 Task("Create-Release-Notes")
-    .IsDependentOn("Run-NUnit-Tests")
+    .IsDependentOn("Check-Build-Folder-Exists")
     .Does(() =>
 {
 	var githubToken = Argument<string>("githubToken");
@@ -94,23 +101,25 @@ Task("Create-Release-Notes")
     if (releaseNotesExitCode != 0) throw new Exception("Failed to generate release notes");
 });
 
+Task("Create-NuGet-Packages")
+  .IsDependentOn("Create-Release-Notes")
+  .Does(() =>
+{
+  NuGetPack("./NGitLab.nuspec", new NuGetPackSettings {
+        Version = semVersion,
+        OutputDirectory = "./build",
+        Symbols = false,
+        NoPackageAnalysis = true
+    });
+});
+
 Task("Upload-AppVeyor-Artifacts")
-    .IsDependentOn("Create-Release-Notes")
+    .IsDependentOn("Create-NuGet-Packages")
     .WithCriteria(() => AppVeyor.IsRunningOnAppVeyor)
     .Does(() =>
 {
-    var gem = string.IsNullOrEmpty(preReleaseTag) ?
-        "gitversion-" + version + ".gem" :
-        "gitversion-" + version + "." + preReleaseTag + ".gem";
-
-    System.IO.File.WriteAllLines("build/artifacts", new[]{
-        "NuGetExeBuild:NGitLab." + nugetVersion +".nupkg",
-        "releaseNotes:releasenotes.md"
-    });
-
-    AppVeyor.UploadArtifact("build/NGitLab." + nugetVersion +".nupkg");
-    AppVeyor.UploadArtifact("build/releasenotes.md");
-    AppVeyor.UploadArtifact("build/artifacts");
+  AppVeyor.UploadArtifact("build/releasenotes.md");
+  AppVeyor.UploadArtifact("build/NGitLab." + nugetVersion +".nupkg");
 });
 
 Task("Default")
