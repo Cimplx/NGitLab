@@ -61,22 +61,6 @@ Task("Build")
        MSBuild("./NGitLab/NGitLab.sln", msBuildSettings);
 });
 
-Task("Run-NUnit-Tests")
-    .IsDependentOn("Build")
-    .Does(() =>
-{
-    var settings = new NUnit3Settings();
-    NUnit3(new [] {
-        "NGitLab/NGitLab.Tests/bin/" + configuration + "/NGitLab.Tests.dll" },
-        settings);
-
-    if (AppVeyor.IsRunningOnAppVeyor)
-    {
-        Information("Uploading test results");
-        AppVeyor.UploadTestResults("TestResult.xml", AppVeyorTestResultsType.NUnit3);
-    }
-});
-
 Task("Check-Build-Folder-Exists")
   .IsDependentOn("Build")
   .Does(() =>
@@ -120,6 +104,22 @@ Task("Upload-AppVeyor-Artifacts")
 {
   AppVeyor.UploadArtifact("build/releasenotes.md");
   AppVeyor.UploadArtifact("build/NGitLab." + nugetVersion +".nupkg");
+});
+
+Task("Run-NUnit-Tests")
+    .IsDependentOn("Build")
+    .Does(() =>
+{
+    var settings = new NUnit3Settings();
+    NUnit3(new [] {
+        "NGitLab/NGitLab.Tests/bin/" + configuration + "/NGitLab.Tests.dll" },
+        settings);
+
+    if (AppVeyor.IsRunningOnAppVeyor)
+    {
+        Information("Uploading test results");
+        AppVeyor.UploadTestResults("TestResult.xml", AppVeyorTestResultsType.NUnit3);
+    }
 });
 
 Task("Default")
