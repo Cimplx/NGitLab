@@ -1,4 +1,6 @@
+![License](https://img.shields.io/github/license/franklin89/NGitLab.svg)
 [![Build status](https://ci.appveyor.com/api/projects/status/4sufsyhxh9m7ga6g?svg=true)](https://ci.appveyor.com/project/Franklin89/ngitlab)
+
 
 Contact me if you want to be the new maintainer
 =============
@@ -25,5 +27,5 @@ Where can I get it?
 =============
 
 Get it from NuGet. You can simply install it with the Package Manager console:
-    
+
     PM> Install-Package NGitLab
