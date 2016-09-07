@@ -1,5 +1,6 @@
 ![License](https://img.shields.io/github/license/franklin89/NGitLab.svg)
 [![Build status](https://ci.appveyor.com/api/projects/status/4sufsyhxh9m7ga6g?svg=true)](https://ci.appveyor.com/project/Franklin89/ngitlab)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/ML-Software/NGitLab?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 #NGitLab
 
