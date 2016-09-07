@@ -1,10 +1,7 @@
 ![License](https://img.shields.io/github/license/franklin89/NGitLab.svg)
 [![Build status](https://ci.appveyor.com/api/projects/status/4sufsyhxh9m7ga6g?svg=true)](https://ci.appveyor.com/project/Franklin89/ngitlab)
 
-
-Contact me if you want to be the new maintainer
-=============
-I can't maintain this project. Contact me if you want to keep it alive.
+#NGitLab
 
 What is NGitLab?
 =============
